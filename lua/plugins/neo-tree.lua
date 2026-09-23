@@ -8,4 +8,9 @@ return {
     },
     lazy = false,
     opts = {},
+    config = function(_, opts)
+        require("neo-tree").setup(opts)
+
+        vim.keymap.set("n","<leader>t",function() vim.cmd("Neotree toggle") end, { desc = "Toggle NeoTree", })
+    end,
 }

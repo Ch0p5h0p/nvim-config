@@ -19,6 +19,7 @@
   "nvim-lspconfig": { "branch": "master", "commit": "ffd261c09c3dabd0bf1a438f47a8ae3b22f3c3ff" },
   "nvim-training": { "branch": "main", "commit": "ab38d312d277fc8e1a123dd7c3b41e710f56e331" },
   "nvim-web-devicons": { "branch": "master", "commit": "914decffe650296c87312c53b7933ecb86718499" },
+  "orgmode": { "branch": "master", "commit": "11f5f903f275544207f643855b9a2ba74de73f5e" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "precognition.nvim": { "branch": "main", "commit": "201da44c95c634ae9d99414ec3cf8fc582fb323b" },
   "presence.nvim": { "branch": "main", "commit": "87c857a56b7703f976d3a5ef15967d80508df6e6" },
