@@ -28,6 +28,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 vim.o.updatetime = 300
 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+vim.keymap.set("n", "<leader>T", function(opts) vim.cmd("belowright split | terminal") vim.cmd("startinsert") end,  { desc = "Open terminal" })
 
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { desc = "Go to next error" })
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { desc = "Go to previous error" })
