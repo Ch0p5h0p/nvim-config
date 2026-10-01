@@ -34,6 +34,9 @@ vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { desc = "Go to next error" 
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { desc = "Go to previous error" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show line error" })
 
+vim.keymap.set('v', '<C-Insert>', '"+y')
+vim.keymap.set('n', '<C-Insert>', '"+y$')
+
 vim.opt.termguicolors = false
 
 vim.opt.tabstop = 4
