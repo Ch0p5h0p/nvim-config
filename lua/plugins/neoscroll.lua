@@ -1,5 +1,7 @@
 return {
     "karb94/neoscroll.nvim",
     enabled = true,
-    opts = {},
+    opts = {
+        duration_multiplier = 0.66,
+    },
 }

@@ -21,7 +21,8 @@ return {
                 "pyright",
                 "nil",
                 --"asm_lsp",
-                --"hls",
+                "hls",
+                "ocamllsp",
             })
         end,
     },
