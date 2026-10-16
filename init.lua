@@ -21,7 +21,7 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd("CursorHold", {
   buffer = bufnr,
   callback = function()
-    vim.diagnostic.open_float(nil, { focusable = false })
+    vim.diagnostic.open_float(nil, { focusable = false, scope = "cursor" })
   end,
 })
 
@@ -33,6 +33,15 @@ vim.keymap.set("n", "<leader>T", function(opts) vim.cmd("belowright split | term
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { desc = "Go to next error" })
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { desc = "Go to previous error" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show line error" })
+vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, { desc = "Show info about the object under the cursor" })
+
+vim.keymap.set("n", "fs", function()
+    vim.ui.input({ prompt = "Enter filetype to change to: " }, function(input)
+        if input then
+            vim.cmd("set filetype="..input)
+        end
+    end)
+end, { desc = "Change buffer filetype" })
 
 vim.keymap.set('v', '<C-Insert>', '"+y')
 vim.keymap.set('n', '<C-Insert>', '"+y$')

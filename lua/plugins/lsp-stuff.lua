@@ -1,9 +1,3 @@
---[[return {
-    { "neovim/nvim-lspconfig" },
-    { "williamboman/mason.nvim", config = true },
-    { "williamboman/mason-lspconfig.nvim" },
-}]]
-
 return {
     {
         "neovim/nvim-lspconfig",
@@ -14,15 +8,22 @@ return {
                 },
             })
 
+            vim.lsp.config("supercollider", {
+                cmd = { "sclang", "-i", "vscode" },
+                filetypes = { "supercollider" },
+                root_markers = { ".git" },
+            })
+
             vim.lsp.enable({
                 "jdtls",
                 "clangd",
                 "rust_analyzer",
                 "pyright",
                 "nil",
-                --"asm_lsp",
+                "asm_lsp",
                 "hls",
                 "ocamllsp",
+                "supercollider",
             })
         end,
     },
@@ -40,7 +41,7 @@ return {
                 "jdtls",
                 "rust_analyzer",
                 "pyright",
-                --"asm_lsp",
+                "asm_lsp",
                 --"hls",
             },
         },
