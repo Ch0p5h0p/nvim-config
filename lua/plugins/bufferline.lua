@@ -28,6 +28,9 @@ return {
         require("bufferline").setup(opts)
 
         vim.keymap.set("n","<C-PageDown>", function() vim.cmd("BufferLineCycleNext") end, { desc = "next buffer", })
+        vim.keymap.set("n","<leader>n", function() vim.cmd("BufferLineCycleNext") end, { desc = "next buffer", })
+
         vim.keymap.set("n", "<C-PageUp>", function() vim.cmd("BufferLineCyclePrev") end, { desc = "previous buffer", })
+        vim.keymap.set("n", "<leader>b", function() vim.cmd("BufferLineCyclePrev") end, { desc = "previous buffer", })
     end,
 }
