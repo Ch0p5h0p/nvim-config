@@ -1,6 +1,6 @@
 return {
     "andweeb/presence.nvim",
-    enabled = false,
+    enabled = true,
     opts = {},
     config = function(opts)
         require("presence").setup({

@@ -14,6 +14,12 @@ return {
                 root_markers = { ".git" },
             })
 
+            vim.filetype.add({
+                extension = {
+                    asm = "nasm",
+                },
+            })
+
             vim.lsp.enable({
                 "jdtls",
                 "clangd",

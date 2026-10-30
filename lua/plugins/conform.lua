@@ -9,7 +9,15 @@ return {
                 --python = { "isort", "black" },
                 rust = { "rustfmt" },
                 nix = { "nixfmt" },
-            }
+                nasm = { "nasmfmt" },
+            },
+            formatters = {
+                nasmfmt = {
+                    command = "nasmfmt",
+                    args = { "-ii", "4", "-ci", "40", "-" },
+                    stdin = true,
+                },
+            },
         })
         
         vim.keymap.set({"n", "v"}, "<leader>F", function()
