@@ -14,6 +14,11 @@ return {
                 root_markers = { ".git" },
             })
 
+            vim.lsp.config("qmlls6", {
+                cmd = { "qmlls6" },
+                filetypes = { "qml", "qmljs" },
+            })
+
             vim.filetype.add({
                 extension = {
                     asm = "nasm",
@@ -30,6 +35,7 @@ return {
                 "hls",
                 "ocamllsp",
                 "supercollider",
+                "qmlls6",
             })
         end,
     },

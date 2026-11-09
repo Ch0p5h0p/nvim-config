@@ -9,14 +9,18 @@ return {
                 --python = { "isort", "black" },
                 rust = { "rustfmt" },
                 nix = { "nixfmt" },
-                nasm = { "nasmfmt" },
+                nasm = { "alignasm" }, -- used to be nasmfmt
             },
             formatters = {
-                nasmfmt = {
+                alignasm = {
+                    command = "alignasm",
+                    stdin = true,
+                },
+                --[[nasmfmt = {
                     command = "nasmfmt",
                     args = { "-ii", "4", "-ci", "40", "-" },
                     stdin = true,
-                },
+                },]]
             },
         })
         

@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 vim.o.updatetime = 300
 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
-vim.keymap.set("n", "<leader>T", function(opts) vim.cmd("belowright split | terminal") vim.cmd("startinsert") end,  { desc = "Open terminal" })
+--vim.keymap.set("n", "<leader>T", function(opts) vim.cmd("belowright split | terminal") vim.cmd("startinsert") end,  { desc = "Open terminal" })
 
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { desc = "Go to next error" })
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { desc = "Go to previous error" })
@@ -45,6 +45,8 @@ end, { desc = "Change buffer filetype" })
 
 vim.keymap.set('v', '<C-Insert>', '"+y')
 vim.keymap.set('n', '<C-Insert>', '"+y$')
+
+vim.keymap.set('n', '<leader>r', function() vim.cmd("Ranger") end, { desc = "Open Ranger" })
 
 vim.opt.termguicolors = false
 
