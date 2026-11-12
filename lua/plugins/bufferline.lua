@@ -2,7 +2,7 @@ return {
     'akinsho/bufferline.nvim',
     dependencies = 'nvim-tree/nvim-web-devicons',
     opts = {
-        highlights = {
+        --[[highlights = {
             fill = {
                 bg = "#181825",
             },
@@ -22,7 +22,7 @@ return {
             close_button_selected = {
                 bg = "#313244",
             },
-        },
+        },]]
     },
     config = function(_, opts)
         require("bufferline").setup(opts)

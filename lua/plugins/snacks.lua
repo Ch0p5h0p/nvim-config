@@ -23,7 +23,15 @@ return {
       notification = {
         wo = { wrap = true } -- Wrap notifications
       }
-    }
+    },
+    zen = {
+        win = {
+            backdrop = {
+                transparent = false,
+                blend = 99,
+            },
+        },
+    },
   },
   keys = {
     -- Top Pickers & Explorer

@@ -28,7 +28,6 @@ vim.api.nvim_create_autocmd("CursorHold", {
 vim.o.updatetime = 300
 
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
---vim.keymap.set("n", "<leader>T", function(opts) vim.cmd("belowright split | terminal") vim.cmd("startinsert") end,  { desc = "Open terminal" })
 
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next, { desc = "Go to next error" })
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { desc = "Go to previous error" })
@@ -48,20 +47,22 @@ vim.keymap.set('n', '<C-Insert>', '"+y$')
 
 vim.keymap.set('n', '<leader>r', function() vim.cmd("Ranger") end, { desc = "Open Ranger" })
 
-vim.opt.termguicolors = false
+vim.opt.termguicolors = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.cmd.colorscheme "catppuccin-nvim"
+--vim.cmd.colorscheme "catppuccin-nvim"
+vim.opt.background = "dark"
+vim.cmd.colorscheme "coffeehouse"
 
-local function cd_to_proj_root()
+function cd_to_proj_root()
     local dir = vim.fn.expand("%:p:h")
 
     if dir == "" then
@@ -83,5 +84,7 @@ local function cd_to_proj_root()
         vim.cmd.cd(dir)
     end
 end
+
+vim.api.nvim_create_user_command('Cdr', cd_to_proj_root, {desc = "cd to project root", nargs = 0})
 
 cd_to_proj_root()
