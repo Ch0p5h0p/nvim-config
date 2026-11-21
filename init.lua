@@ -34,6 +34,8 @@ vim.keymap.set("n", "[g", vim.diagnostic.goto_prev, { desc = "Go to previous err
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show line error" })
 vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, { desc = "Show info about the object under the cursor" })
 
+vim.keymap.set("n", "<leader>vs", "<C-w>v", { desc = "Split window vertically" })
+
 vim.keymap.set("n", "fs", function()
     vim.ui.input({ prompt = "Enter filetype to change to: " }, function(input)
         if input then
@@ -49,6 +51,8 @@ vim.keymap.set('n', '<leader>r', function() vim.cmd("Ranger") end, { desc = "Ope
 
 vim.opt.termguicolors = true
 
+vim.opt.wrap = false
+
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -61,6 +65,47 @@ vim.opt.relativenumber = true
 --vim.cmd.colorscheme "catppuccin-nvim"
 vim.opt.background = "dark"
 vim.cmd.colorscheme "coffeehouse"
+
+-- start each empty file with a randomly selected comment
+local messages_file = vim.fn.stdpath("config") .. "/scratch-messages"
+
+if vim.fn.filereadable(messages_file) ~= 1 then
+    vim.fn.writefile({"PLEASE put something in "..messages_file}, messages_file)
+end
+
+local function random_message()
+    local messages = vim.fn.readfile(messages_file)
+
+    if #messages == 0 then
+        return "PLEASE put something in "..messages_file
+    end
+
+    return messages[math.random(#messages)]
+end
+
+local group = vim.api.nvim_create_augroup("NewFileTemplate", {
+    clear = true,
+})
+
+vim.api.nvim_create_autocmd("BufNewFile", {
+    group = group,
+    pattern = "*",
+    callback = function()
+        local commentstring = vim.bo.commentstring
+
+        if commentstring == "" then
+            return
+        end
+
+        local message = random_message()
+        local comment = commentstring:format(" " .. message)
+
+        vim.api.nvim_buf_set_lines(0, 0, -1, false, {
+            comment,
+            "",
+        })
+    end,
+})
 
 function cd_to_proj_root()
     local dir = vim.fn.expand("%:p:h")

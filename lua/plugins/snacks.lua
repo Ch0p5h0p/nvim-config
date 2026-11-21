@@ -5,7 +5,7 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
-    dashboard = require("configs.snacks-dashboard"), --{ enabled = true },
+    dashboard = require("plugin-configs.snacks-dashboard"), --{ enabled = true },
     explorer = { enabled = true },
     indent = { enabled = true },
     input = { enabled = true },
