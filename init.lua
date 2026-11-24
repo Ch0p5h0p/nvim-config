@@ -49,6 +49,9 @@ vim.keymap.set('n', '<C-Insert>', '"+y$')
 
 vim.keymap.set('n', '<leader>r', function() vim.cmd("Ranger") end, { desc = "Open Ranger" })
 
+vim.keymap.set({'n', 'v'}, 'x', '"_x', { noremap = true })
+vim.keymap.set({'n', 'v'}, 'X', '"_X', { noremap = true })
+
 vim.opt.termguicolors = true
 
 vim.opt.wrap = false
